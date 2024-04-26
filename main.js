@@ -66,11 +66,11 @@ function endLevel() {
         waitTimeRange -= 10;
         activeTimeBase -= 20;
         activeTimeRange -= 20;
-        initializeLevel();
         button.textContent = "Start Level " + level;
     } else {
         alert("Das war's noch nicht. Deine Punkte: " + points);
     }
+    initializeLevel();
     points = 0;
     button.classList.remove("rc-d-none");
 }
