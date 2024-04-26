@@ -34,14 +34,15 @@ let controlsActive = false;
 
 function initializeLevel() {
     let sourceDeck = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         sourceDeck.push(0);
     }
-    for (let i = 0; i < 10; i++) {
+
+    for (let i = 0; i < 5; i++) {
         sourceDeck.push(1);
     }
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 10; i++) {
         const randomIndex = Math.floor(Math.random() * sourceDeck.length);
         ballDeck.push(sourceDeck[randomIndex]);
         sourceDeck.slice(randomIndex, 1);
@@ -58,13 +59,13 @@ function startLevel() {
 function endLevel() {
     const button = document.querySelector("button");
 
-    if (points > 0) {
+    if (points > 5) {
         alert("Geschafft! Deine Punkte: " + points);
         level++;
         waitTimeBase -= 10;
         waitTimeRange -= 10;
-        activeTimeBase -= 10;
-        activeTimeRange -= 10;
+        activeTimeBase -= 20;
+        activeTimeRange -= 20;
         initializeLevel();
         button.textContent = "Start Level " + level;
     } else {
@@ -76,7 +77,7 @@ function endLevel() {
 
 function showBall() {
     currentBallType = ballDeck.pop();
-    const randomX = 50 + Math.floor(Math.random() * 800);
+    const randomX = 50 + Math.floor(Math.random() * 1600);
     const randomY = 50 + Math.floor(Math.random() * 600);
     const ball = currentBallType === 0 ? document.querySelector(".rc-ball-red") : document.querySelector(".rc-ball-green");
     ball.style.top = randomY + "px";
