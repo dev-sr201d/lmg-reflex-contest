@@ -104,6 +104,13 @@ function hideBall() {
 
 function checkKeyEvent(e) {
     if (!controlsActive) {
+        if (e.code === "Enter") {
+            const button = document.querySelector("button");
+            if (button.classList.contains("rc-d-none")) {
+                return;
+            }
+            startLevel();
+        }
         return;
     }
 
