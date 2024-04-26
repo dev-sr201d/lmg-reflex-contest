@@ -5,6 +5,7 @@ function init() {
     initializeLevel();
     const button = document.querySelector("button");
     button.addEventListener("click", startLevel);
+    window.addEventListener("keydown", checkKeyEvent);
 }
 
 function createBalls() {
@@ -52,7 +53,6 @@ function initializeLevel() {
 function startLevel() {
     const button = document.querySelector("button");
     button.classList.add("rc-d-none");
-    window.addEventListener("keydown", checkKeyEvent);
     setTimeout(showBall, 2000);
 }
 
