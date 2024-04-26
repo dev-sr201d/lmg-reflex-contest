@@ -23,10 +23,13 @@ function createBalls() {
 }
 
 const ballDeck = [];
-let waitTimeBase = 200;
-let waitTimeRange = 300;
+let waitTimeBase = 500;
+let waitTimeRange = 500;
 let activeTimeBase = 500;
 let activeTimeRange = 500;
+
+let waitTimeout = null;
+let activeTimeout = null;
 
 let level = 1;
 let points = 0;
@@ -86,7 +89,7 @@ function showBall() {
     controlsActive = true;
     
     const timeout = activeTimeBase + Math.floor(Math.random() * activeTimeRange);
-    setTimeout(hideBall, timeout);
+    activeTimeout = setTimeout(hideBall, timeout);
 }
 
 function hideBall() {
@@ -99,7 +102,7 @@ function hideBall() {
     }
 
     const timeout = waitTimeBase + Math.floor(Math.random() * waitTimeRange);
-    setTimeout(showBall, timeout);
+    waitTimeout = setTimeout(showBall, timeout);
 }
 
 function checkKeyEvent(e) {
@@ -134,6 +137,6 @@ function checkKeyEvent(e) {
         points--;
     }
 
-    const ball = currentBallType === 0 ? document.querySelector(".rc-ball-red") : document.querySelector(".rc-ball-green");
-    ball.classList.add("rc-d-none");
+    window.clearTimeout(activeTimeout);
+    hideBall();
 }
