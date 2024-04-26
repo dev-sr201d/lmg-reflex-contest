@@ -1,0 +1,33 @@
+body {
+    background-color: #667;
+}
+
+button {
+    position: absolute;
+    top: calc(50vh - 30px);
+    left: calc(50vw - 200px);
+    width: 200px;
+    height: 30px;
+    text-align: center;
+}
+
+.rc-d-none {
+    display: none;
+}
+
+.rc-ball {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.rc-ball-green {
+    background-color: #9f9;
+}
+
+.rc-ball-red {
+    background-color: #f9a;
+}
